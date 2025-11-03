@@ -1,0 +1,40 @@
+#include<stdio.h>
+int top=-1;
+int size;
+
+char stack[50];
+void push(char item)
+{
+    if(top==(size-1))
+    {
+        printf("stack is already full,no additional push alllowed overflow");
+    }
+    else
+    {
+        top=top+1;
+        stack[top]=item;
+    }
+}
+char pop()
+{
+    char temp=stack[top];
+    top=top-1;
+    return temp;
+}
+int main()
+{
+    printf("enter the size string to reverse");
+    scanf("%d",&size);
+    char input[size];
+    printf("enter the string of size%d to reverse:",size);
+    scanf("%s",input);
+    for(int i=0;i<=size-1;i++)
+    {
+        push(input[i]);
+    }
+    printf("reversed string is -\n");
+    for(int i=0;i<size-1;i++)
+    {
+        printf("%c",pop());
+    }
+}
